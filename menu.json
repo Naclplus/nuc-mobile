@@ -1,0 +1,33 @@
+[
+  {
+    "title": "开发指南",
+    "groups": [
+      {
+        "list": [
+          {
+            "title": "介绍",
+            "link": "/intro"
+          },
+          {
+            "title": "快速上手",
+            "link": "/quickstart"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "组件",
+    "groups": [
+      {
+        "groupName": "基础组件",
+        "list": [
+          {
+            "title": "Button 按钮",
+            "link": "/button"
+          }
+        ]
+      }
+    ]
+  }
+]
