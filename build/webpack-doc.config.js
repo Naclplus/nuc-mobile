@@ -1,11 +1,11 @@
 const EslintFriendlyFormatter = require('eslint-friendly-formatter')
-const { resolve, convertHtml, strip } = require('./utils')
+const { resolve } = require('./utils')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-const MarkdownItAnchor = require('markdown-it-anchor')
 const MarkdownItCantainer = require('markdown-it-container')
-const slugify = require('transliteration').slugify
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -16,23 +16,12 @@ const vueMarkdown = {
         return source
     },
     use: [
-        // [MarkdownItAnchor, {
-        //     level: 2, // 添加超链接锚点的最小标题级别, 如: #标题 不会添加锚点
-        //     slugify: slugify, // 自定义slugify, 我们使用的是将中文转为汉语拼音,最终生成为标题id属性
-        //     permalink: true, // 开启标题锚点功能
-        //     permalinkBefore: true // 在标题前创建锚点
-        // }],
         [MarkdownItCantainer, 'doc', {
             validate: (params) => {
                 return params.trim().match(/^doc\s*(.*)$/)
             },
             render: (tokens, index) => {
                 let m = tokens[index].info.trim().match(/^doc\s*(.*)$/)
-                // if (tokens[index].nesting === 1) {
-                //     let description = (m && m.length > 1) ? m[1] : ''
-                //     let content = tokens[index + 1].content
-                //     let html = convertHtml(strip(content, ['script', 'style'])).replace(/(<[^>]*)=""(?=.*>)/g, '$1')
-                // }
                 if (tokens[index].nesting === 1) {
                     // opening tag
                     return '<code-card><h2>' + m[1] + '</h2>\n'
@@ -64,10 +53,52 @@ if (isProduction) {
     // })
 }
 
+let plugins = []
+
+if (!isProduction) {
+    plugins = [
+        new HtmlWebpackPlugin({
+            template: './example/index.html'
+        }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
+        new FriendlyErrorsPlugin(),
+        new VueLoaderPlugin()
+    ]
+} else {
+    plugins = [
+        new MiniCssExtractPlugin({
+            filename: 'css/[name].[hash].css'
+        }),
+        new OptimizeCSSPlugin({
+            cssProcessorOptions: {
+                safe: true
+            }
+        }),
+        new HtmlWebpackPlugin({
+            template: './doc/index.html',
+            inject: true,
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeAttributeQuotes: true
+            },
+            chunksSortMode: 'dependency'
+        }),
+        new VueLoaderPlugin()
+    ]
+}
+
 module.exports = {
-    mode: 'development',
+    mode: isProduction ? 'production' : 'development',
     entry: {
         index: './doc/index.js'
+    },
+    output: {
+        filename: '[name].[hash:9].js',
+        chunkFilename: '[name].[hash:9].js',
+        publicPath: './',
+        path: resolve('doc-dist')
     },
     devtool: '#cheap-module-eval-source-map',
     resolve: {
@@ -128,13 +159,5 @@ module.exports = {
             }
         ]
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: './doc/index.html'
-        }),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),
-        new FriendlyErrorsPlugin(),
-        new VueLoaderPlugin()
-    ]
+    plugins
 }

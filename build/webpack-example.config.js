@@ -3,16 +3,10 @@ const { resolve } = require('./utils')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const isProduction = process.env.NODE_ENV === 'production'
-
-const vueMarkdown = {
-    raw: true,
-    preprocess: function (markdownIt, source) {
-        // do any thing
-        return source
-    }
-}
 
 let cssLoader = [
     'style-loader',
@@ -36,18 +30,52 @@ let cssLoader = [
     }
 ]
 
-if (isProduction) {
-    // const styleLoader = cssLoader.shift()
-    // cssLoader = ExtractTextPlugin.extract({
-    //     fallback: styleLoader,
-    //     use: cssLoader
-    // })
+let plugins = []
+
+if (!isProduction) {
+    plugins = [
+        new HtmlWebpackPlugin({
+            template: './example/index.html'
+        }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
+        new FriendlyErrorsPlugin(),
+        new VueLoaderPlugin()
+    ]
+} else {
+    plugins = [
+        new MiniCssExtractPlugin({
+            filename: 'css/[name].[hash].css'
+        }),
+        new OptimizeCSSPlugin({
+            cssProcessorOptions: {
+                safe: true
+            }
+        }),
+        new HtmlWebpackPlugin({
+            template: './example/index.html',
+            inject: true,
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeAttributeQuotes: true
+            },
+            chunksSortMode: 'dependency'
+        }),
+        new VueLoaderPlugin()
+    ]
 }
 
 module.exports = {
-    mode: 'development',
+    mode: isProduction ? 'production' : 'development',
     entry: {
         index: './example/index.js'
+    },
+    output: {
+        filename: '[name].[hash:9].js',
+        chunkFilename: '[name].[hash:9].js',
+        publicPath: './',
+        path: resolve('example-dist')
     },
     devtool: '#cheap-module-eval-source-map',
     resolve: {
@@ -101,13 +129,5 @@ module.exports = {
             }
         ]
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: './example/index.html'
-        }),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),
-        new FriendlyErrorsPlugin(),
-        new VueLoaderPlugin()
-    ]
+    plugins
 }
