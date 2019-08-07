@@ -1,6 +1,6 @@
 <template>
     <div class="basic-header">
-        1111
+        假装有Logo
     </div>
 </template>
 
@@ -13,7 +13,12 @@ export default {
 <style scoped lang="stylus">
     .basic-header {
         height: 60px;
+        line-height: 60px;
+        padding: 0 40px;
         box-shadow: 0 3px 5px #eaeaea;
         background: #007bfa;
+        position: fixed
+        width: 100%;
+        color: #fff;
     }
 </style>

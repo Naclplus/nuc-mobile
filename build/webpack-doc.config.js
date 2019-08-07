@@ -58,7 +58,7 @@ let plugins = []
 if (!isProduction) {
     plugins = [
         new HtmlWebpackPlugin({
-            template: './example/index.html'
+            template: './doc/index.html'
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
@@ -88,17 +88,10 @@ if (!isProduction) {
         new VueLoaderPlugin()
     ]
 }
-
-module.exports = {
+const config = {
     mode: isProduction ? 'production' : 'development',
     entry: {
         index: './doc/index.js'
-    },
-    output: {
-        filename: '[name].[hash:9].js',
-        chunkFilename: '[name].[hash:9].js',
-        publicPath: './',
-        path: resolve('doc-dist')
     },
     devtool: '#cheap-module-eval-source-map',
     resolve: {
@@ -161,3 +154,14 @@ module.exports = {
     },
     plugins
 }
+
+if (isProduction) {
+    config.output = {
+        filename: '[name].[hash:9].js',
+        chunkFilename: '[name].[hash:9].js',
+        publicPath: './',
+        path: resolve('doc-dist')
+    }
+}
+
+module.exports = config

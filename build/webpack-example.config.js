@@ -66,17 +66,12 @@ if (!isProduction) {
     ]
 }
 
-module.exports = {
+const config = {
     mode: isProduction ? 'production' : 'development',
     entry: {
         index: './example/index.js'
     },
-    output: {
-        filename: '[name].[hash:9].js',
-        chunkFilename: '[name].[hash:9].js',
-        publicPath: './',
-        path: resolve('example-dist')
-    },
+
     devtool: '#cheap-module-eval-source-map',
     resolve: {
         extensions: ['.js', '.vue', '.json', '.md']
@@ -131,3 +126,14 @@ module.exports = {
     },
     plugins
 }
+
+if (isProduction) {
+    config.output = {
+        filename: '[name].[hash:9].js',
+        chunkFilename: '[name].[hash:9].js',
+        publicPath: './',
+        path: resolve('example-dist')
+    }
+}
+
+module.exports = config

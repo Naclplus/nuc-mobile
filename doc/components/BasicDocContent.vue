@@ -16,5 +16,5 @@ export default {
     .basic-doc-content
         padding: 0 500px 0 300px;
         .content-wrapper
-            padding: 20px;
+            padding: 60px 20px 20px 20px;
 </style>

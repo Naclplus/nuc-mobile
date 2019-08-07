@@ -37,7 +37,7 @@
 
 <script>
 export default {
-    name: 'page-button',
+    name: 'example-button'
 }
 </script>
 

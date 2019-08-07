@@ -20,6 +20,20 @@
     "title": "组件",
     "groups": [
       {
+        "groupName": "布局组件",
+        "list": [
+          {
+            "title": "PageContainer 页面",
+            "link": "/page-container"
+          },
+          {
+            "title": "Flexbox 弹性盒子布局",
+            "link": "/flex-box"
+          }
+        ]
+
+      },
+      {
         "groupName": "基础组件",
         "list": [
           {
