@@ -21,8 +21,8 @@ export default {
         right: 80px;
         top: 120px;
         bottom: 0;
-        width: 320px;
-        height: 640px;
+        width: 375px;
+        height: 667px;
         box-shadow: 0 4px 12px #ebedf0;
         .screen
             width: 100%;

@@ -23,12 +23,20 @@
         "groupName": "布局组件",
         "list": [
           {
+            "title": "Header 头部导航条",
+            "link": "/header"
+          },
+          {
+            "title": "Tabbar 标签栏",
+            "link": "/tabbar"
+          },
+          {
             "title": "PageContainer 页面",
             "link": "/page-container"
           },
           {
             "title": "Flexbox 弹性盒子布局",
-            "link": "/flex-box"
+            "link": "/flexbox"
           }
         ]
 

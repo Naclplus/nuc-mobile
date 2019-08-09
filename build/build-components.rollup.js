@@ -34,7 +34,6 @@ function compileVueStylus (content, cb, compiler, filePath) {
         .set('filename', filePath)
         .define('url', stylus.url())
         .import(path.join(__dirname, '../components/_styles/variables.styl'))
-        .import(path.join(__dirname, '../components/_styles/bem-sugar.styl'))
         .render(async (err, css) => {
             if (err) {
                 throw err

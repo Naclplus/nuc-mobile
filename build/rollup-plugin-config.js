@@ -70,7 +70,6 @@ async function vueWarpper () {
                         use: [(styl) => {
                             styl.define('url', stylus.url())
                                 .import(path.join(__dirname, '../components/_styles/variables.styl'))
-                                .import(path.join(__dirname, '../components/_styles/bem-sugar.styl'))
                         }]
                     }
                 }

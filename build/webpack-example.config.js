@@ -71,7 +71,9 @@ const config = {
     entry: {
         index: './example/index.js'
     },
-
+    devServer: {
+        disableHostCheck: true
+    },
     devtool: '#cheap-module-eval-source-map',
     resolve: {
         extensions: ['.js', '.vue', '.json', '.md']
