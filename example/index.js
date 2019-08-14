@@ -1,8 +1,8 @@
 import 'amfe-flexible'
+import 'normalize.css'
 import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
-import 'normalize.css'
 import menu from '../menu'
 import Nuc from '../components'
 

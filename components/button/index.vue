@@ -24,7 +24,7 @@
                     />
                 </path>
             </svg>
-            <p><slot /></p>
+            <span><slot /></span>
         </div>
     </button>
 </template>
