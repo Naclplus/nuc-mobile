@@ -47,6 +47,10 @@
           {
             "title": "Button 按钮",
             "link": "/button"
+          },
+          {
+            "title": "Tab 标签",
+            "link": "/tab"
           }
         ]
       }

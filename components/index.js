@@ -3,9 +3,11 @@ import Flexbox from './flexbox'
 import PageContainer from './page-container'
 import Header from './header'
 import Tabbar from './tabbar'
+import Tab from './tab'
 
 const FlexboxItem = Flexbox.Item
 const TabbarItem = Tabbar.Item
+const TabItem = Tab.Item
 
 const components = {
     Button,
@@ -14,7 +16,9 @@ const components = {
     PageContainer,
     Header,
     Tabbar,
-    TabbarItem
+    TabbarItem,
+    Tab,
+    TabItem
 }
 
 const install = function (Vue) {
@@ -42,7 +46,8 @@ export {
     Flexbox,
     PageContainer,
     Header,
-    Tabbar
+    Tabbar,
+    Tab
 }
 
 export default components

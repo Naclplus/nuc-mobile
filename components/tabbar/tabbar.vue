@@ -56,7 +56,7 @@ export default {
         width 100%
         height tabbar-height
         background tabbar-fill
-        color tabbar-text-color-default
+        color tabbar-text-color
         z-index tabbar-z-index
         &--fixed
             position fixed
@@ -69,7 +69,7 @@ export default {
             align-items center
             justify-content center
             &--active
-                color tabbar-text-active-color-defualt
+                color tabbar-text-active-color
             &__icon
                 position relative
                 margin-bottom 10px
@@ -82,7 +82,7 @@ export default {
                 width 16px
                 height 16px
                 border-radius 100%
-                background red
+                background tabbar-badge-fill
             &__badge
                 position absolute
                 top -8px
@@ -94,10 +94,10 @@ export default {
                 padding 0 8px
                 font-size 24px
                 box-sizing border-box
-                background red
+                background tabbar-badge-fill
                 text-align center
                 font-weight 500
-                color #fff
+                color tabbar-badge-color
                 white-space nowrap
                 transform translateX(50%)
                 transform-origin 100%
