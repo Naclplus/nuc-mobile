@@ -4,7 +4,11 @@
             <a>{{ m.title }}</a>
             <div v-for="(g, gkey) in m.groups" :key="gkey">
                 <div class="menu-item__group-title">{{ g.groupName }}</div>
-                <div v-for="(l, lkey) in g.list" :key="lkey" class="menu-item__subitem">
+                <div
+                    v-for="(l, lkey) in g.list"
+                    :key="lkey" class="menu-item__subitem"
+                    :class="{ 'menu-item__subitem--active': activeLink === l.link }"
+                    @click="onClick(l.link)">
                     <router-link :to="l.link">{{ l.title }}</router-link>
                 </div>
             </div>
@@ -18,7 +22,13 @@ export default {
     name: 'basic-slider-menu',
     data () {
         return {
-            menu
+            menu,
+            activeLink: '/intro'
+        }
+    },
+    methods: {
+        onClick (link) {
+            this.activeLink = link
         }
     }
 }
@@ -47,10 +57,16 @@ export default {
         line-height: 40px;
         padding-left: 30px;
         color: rgba(69,90,100,.6);
-    .menu-item__subitem > a
-        font-size: 14px;
-        display: block;
+    .menu-item__subitem
         color: #455a64;
-        padding: 10px 10px 10px 30px;
-        text-decoration: none;
+        &--active
+            color #007BFA
+        &:hover
+            color #9DCDFF
+        > a
+            color inherit
+            font-size: 14px;
+            display: block;
+            padding: 10px 10px 10px 30px;
+            text-decoration: none;
 </style>
