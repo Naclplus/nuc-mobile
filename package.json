@@ -25,6 +25,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "amfe-flexible": "^2.2.1",
     "highlight.js": "^9.15.8",
     "stylus-bem-sugar": "^1.0.4",
     "vue": "^2.6.10",
