@@ -1,6 +1,6 @@
 <template>
     <div class="emulator-wrapper">
-        <iframe class="screen" frameborder="0" :src="`http://localhost:8080/#${currentRoute}`"></iframe>
+        <iframe class="screen" frameborder="0" :src="currentRoute"></iframe>
     </div>
 </template>
 
@@ -9,7 +9,8 @@ export default {
     name: 'emulator-wrapper',
     computed: {
         currentRoute () {
-            return this.$route.path
+            const prefix = process.env.NODE_ENV === 'production' ? '../example/#' : 'http://localhost:8080/#'
+            return prefix + this.$route.path
         }
     }
 }

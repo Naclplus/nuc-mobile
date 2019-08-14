@@ -134,7 +134,7 @@ if (isProduction) {
         filename: '[name].[hash:9].js',
         chunkFilename: '[name].[hash:9].js',
         publicPath: './',
-        path: resolve('example-dist')
+        path: resolve('site/example')
     }
 }
 

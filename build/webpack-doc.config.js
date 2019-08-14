@@ -160,7 +160,7 @@ if (isProduction) {
         filename: '[name].[hash:9].js',
         chunkFilename: '[name].[hash:9].js',
         publicPath: './',
-        path: resolve('doc-dist')
+        path: resolve('site/doc')
     }
 }
 
