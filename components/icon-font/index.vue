@@ -1,5 +1,5 @@
 <template>
-    <i class="nuc-icon" :class="[`nuc-icon--size-${size}`]">
+    <i class="nuc-icon" :class="{ [`nuc-icon--size-${size}`] : isPrepaidSize }" :style="sizeStyle">
         <svg
             class=""
             width="1em"
@@ -28,6 +28,20 @@ export default {
         size: {
             type: [String, Number],
             default: 'md'
+        }
+    },
+    computed: {
+        isPrepaidSize () {
+            return this.size === 'xs' || this.size === 'sm' || this.size === 'md' || this.size === 'lg' || this.size === 'xl' || this.size === 'xxl'
+        },
+        sizeStyle () {
+            if (!this.isPrepaidSize) {
+                let fontSize = isNaN(Number(this.size)) ? this.size : this.size + 'px'
+                return {
+                    fontSize
+                }
+            }
+            return null
         }
     }
 }

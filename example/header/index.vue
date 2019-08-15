@@ -1,7 +1,6 @@
 <template>
-    <div>
-        <nuc-header>基本用法</nuc-header>
-        <div style="padding-top: 60px">
+    <nuc-page-container header-label="Header 头部导航" no-footer>
+        <div>
             <nuc-header :fixed="false">不锁定</nuc-header>
         </div>
         <div style="padding-top: 10px">
@@ -28,7 +27,7 @@
             <nuc-header :fixed="false" @left-click="onLeftClick">左侧点击事件</nuc-header>
         </div>
         <div style="height: 400px" />
-    </div>
+    </nuc-page-container>
 </template>
 
 <script>

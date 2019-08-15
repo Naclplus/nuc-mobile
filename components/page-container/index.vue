@@ -55,18 +55,22 @@ export default {
     },
     mounted () {
         setTimeout(() => {
-            const headerChildNodes = this.$refs['page-header'].childNodes
-            const footerChildNodes = this.$refs['page-footer'].childNodes
-            let headerWrapperHeight = 0
-            let footerWrapperHeight = 0
-            headerChildNodes.forEach((node) => {
-                headerWrapperHeight += node.offsetHeight
-            })
-            footerChildNodes.forEach((node) => {
-                footerWrapperHeight += node.offsetHeight
-            })
-            this.$refs['page-header'].style.height = `${headerWrapperHeight}px`
-            this.$refs['page-footer'].style.height = `${footerWrapperHeight}px`
+            if (!this.noHeader) {
+                let headerWrapperHeight = 0
+                const headerChildNodes = this.$refs['page-header'].childNodes
+                headerChildNodes.forEach((node) => {
+                    headerWrapperHeight += node.offsetHeight
+                })
+                this.$refs['page-header'].style.height = `${headerWrapperHeight}px`
+            }
+            if (!this.noFooter) {
+                const footerChildNodes = this.$refs['page-footer'].childNodes
+                let footerWrapperHeight = 0
+                footerChildNodes.forEach((node) => {
+                    footerWrapperHeight += node.offsetHeight
+                })
+                this.$refs['page-footer'].style.height = `${footerWrapperHeight}px`
+            }
         }, 0)
     }
 }

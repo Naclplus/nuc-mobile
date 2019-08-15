@@ -39,7 +39,7 @@ export default {
         },
         leftIcon: {
             type: String,
-            default: 'left-l'
+            default: 'arrow-left'
         },
         leftText: {
             type: String,

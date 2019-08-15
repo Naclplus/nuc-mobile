@@ -51,6 +51,10 @@
           {
             "title": "Tab 标签",
             "link": "/tab"
+          },
+          {
+            "title": "IconFont 图标",
+            "link": "/icon-font"
           }
         ]
       }
