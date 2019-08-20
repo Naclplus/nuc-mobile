@@ -1,5 +1,5 @@
 <template>
-    <div class="basic-slider-menu">
+    <div class="basic-slider-menu" :class="{ 'is-hide': isHide }">
         <div v-for="(m, mkey) in menu" :key="mkey" class="menu-item">
             <a>{{ m.title }}</a>
             <div v-for="(g, gkey) in m.groups" :key="gkey">
@@ -23,8 +23,20 @@ export default {
     data () {
         return {
             menu,
-            activeLink: '/intro'
+            activeLink: '/intro',
+            isHide: false
+
         }
+    },
+    mounted () {
+        window.addEventListener('scroll', () => {
+            var t = document.documentElement.scrollTop || document.body.scrollTop // 变量t就是滚动条滚动时，到顶部的距离
+            if (t > 20) {
+                this.isHide = true
+            } else {
+                this.isHide = false
+            }
+        })
     },
     methods: {
         onClick (link) {
@@ -35,7 +47,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-    .basic-slider-menu {
+    .basic-slider-menu
         padding: 30px 0;
         position: fixed;
         left: 0;
@@ -45,7 +57,9 @@ export default {
         overflow-y scroll;
         box-shadow: 0 8px 12px #eaeaea;
         background: #fff;
-    }
+        &.is-hide
+            top 0
+
     .menu-item > a
         font-weight: 700;
         display: block;

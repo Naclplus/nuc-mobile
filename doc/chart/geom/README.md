@@ -4,7 +4,6 @@
 ## 简介
 几何标记对象，决定了图表的类型，具体的概念介绍请参见 [F2 Geometry](https://www.yuque.com/antv/f2/api-geometry)
 
-[color](#color)
 :::
 
 :::doc
@@ -85,7 +84,7 @@ F2 生成的图表的类型，都是由几何标记决定的。可以通过下�
 <nuc-geom type="line" position="['x', 'y']" />
 ```
 
-### <a id="color">color</a>
+### color
 * 类型： String | Array
 * 描述： 将数据值映射到图形的颜色上的方法。
 
@@ -252,4 +251,38 @@ F2 支持的调整类型包括：`stack`, `dodge`。
 <nuc-geom type="interval" :adjust="{ type: 'stack' }" />
 <nuc-geom type="interval" :adjust="[{ type: 'dodge', marginRatio: 0 }]" />
 ```
+
+### style
+用于配置几何标记显示的图形属性，详见 [绘图属性](https://www.yuque.com/antv/f2/canvas?_blank)。
+
+1. #### style=cfg
+    * `cfg`：Object 配置绘图属性
+```html
+<nuc-geom type="line" :style="{ lineWidth: 2 }" />
+```
+2. #### style=[field, cfg]
+    * field：String 映射的字段名
+    * cfg：Object 配置绘图属性，此时属性值也可以是回调函数
+```html
+<nuc-geom type="line" :style="style" />
+```
+```javascript
+export default {
+    data () {
+        return {
+            style: ['city', {
+                  lineDash(val) {
+                    if (val === 'HZ') {
+                      return [ 2, 2 ];
+                    }
+                    return null;
+                  }
+            }]
+        }
+    }
+}
+```
+### animate
+用于配置具体的动画。参见 [Animation](https://www.yuque.com/antv/f2/api-animate)。
+
 :::
