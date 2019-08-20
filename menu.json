@@ -55,6 +55,31 @@
           {
             "title": "IconFont 图标",
             "link": "/icon-font"
+          },
+          {
+            "title": "Carousel 轮播",
+            "link": "/carousel"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "图表组件",
+    "groups": [
+      {
+        "list": [
+          {
+            "title": "介绍",
+            "link": "/chart"
+          },
+          {
+            "title": "Chart 图表",
+            "link": "/chart/chart"
+          },
+          {
+            "title": "Geom 几何标记",
+            "link": "/chart/geom"
           }
         ]
       }

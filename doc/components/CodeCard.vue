@@ -15,4 +15,6 @@ export default {
         border-radius: 6px;
         background-color: #fff;
         box-shadow: 0 8px 12px #ebedf0;
+        img
+            width 100%
 </style>

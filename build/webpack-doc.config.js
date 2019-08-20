@@ -93,6 +93,9 @@ const config = {
     entry: {
         index: './doc/index.js'
     },
+    output: {
+        publicPath: '/'
+    },
     devtool: '#cheap-module-eval-source-map',
     resolve: {
         extensions: ['.js', '.vue', '.json', '.md']
@@ -159,7 +162,7 @@ if (isProduction) {
     config.output = {
         filename: '[name].[hash:9].js',
         chunkFilename: '[name].[hash:9].js',
-        publicPath: './',
+        publicPath: '/',
         path: resolve('site/doc')
     }
 }

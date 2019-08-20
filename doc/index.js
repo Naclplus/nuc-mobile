@@ -30,7 +30,16 @@ menu.forEach((nav) => {
 })
 
 const router = new VueRouter({
-    routes
+    mode: 'history',
+    base: '/',
+    routes,
+    scrollBehavior (to, from, savedPosition) {
+        if (to.hash) {
+            return {
+                selector: to.hash
+            }
+        }
+    }
 })
 
 new Vue({

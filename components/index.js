@@ -5,10 +5,34 @@ import Header from './header'
 import Tabbar from './tabbar'
 import Tab from './tab'
 import Icon from './icon-font'
+import Carousel from './carousel'
+import Chart from './chart'
 
 const FlexboxItem = Flexbox.Item
 const TabbarItem = Tabbar.Item
 const TabItem = Tab.Item
+const CarouselItem = Carousel.Item
+// Chart
+const Coord = Chart.Coord
+const Geom = Chart.Geom
+const Axis = Chart.Axis
+const Legend = Chart.Legend
+const Tooltip = Chart.Tooltip
+const Guide = Chart.Guide
+const Interaction = Chart.Interaction
+const ScrollBar = Chart.ScrollBar
+
+const GuideLine = Guide.Line
+const GuideText = Guide.Text
+const GuidePoint = Guide.Point
+const GuideTag = Guide.Tag
+const GuideRect = Guide.Rect
+const GuideHtml = Guide.Html
+const GuideArc = Guide.Arc
+const GuideRegionFilter = Guide.RegionFilter
+const InteractionPan = Interaction.Pan
+const InteractionPinch = Interaction.Pinch
+const InteractionSwipe = Interaction.Swipe
 
 const components = {
     Button,
@@ -20,7 +44,29 @@ const components = {
     TabbarItem,
     Tab,
     TabItem,
-    Icon
+    Icon,
+    Carousel,
+    CarouselItem,
+    Chart,
+    Coord,
+    Geom,
+    Axis,
+    Legend,
+    Tooltip,
+    Guide,
+    GuideLine,
+    GuideText,
+    GuidePoint,
+    GuideTag,
+    GuideRect,
+    GuideHtml,
+    GuideArc,
+    GuideRegionFilter,
+    Interaction,
+    InteractionPan,
+    InteractionPinch,
+    InteractionSwipe,
+    ScrollBar
 }
 
 const install = function (Vue) {
@@ -50,7 +96,9 @@ export {
     Header,
     Tabbar,
     Tab,
-    Icon
+    Icon,
+    Carousel,
+    Chart
 }
 
 export default components

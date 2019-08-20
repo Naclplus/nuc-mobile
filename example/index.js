@@ -12,7 +12,7 @@ Vue.use(VueRouter)
 const routes = [
 ]
 
-menu.filter((nav) => nav.title === '组件').forEach((nav) => {
+menu.filter((nav) => nav.title === '组件' || nav.title === '图表组件').forEach((nav) => {
     if (nav.groups) {
         nav.groups.forEach((group) => {
             group.list.forEach((page) => {
