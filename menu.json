@@ -80,6 +80,14 @@
           {
             "title": "Geom 几何标记",
             "link": "/chart/geom"
+          },
+          {
+            "title": "Axis 坐标轴",
+            "link": "/chart/axis"
+          },
+          {
+            "title": "Legend 图例",
+            "link": "/chart/legend"
           }
         ]
       }

@@ -1,5 +1,7 @@
 <template>
-    <div>111</div>
+    <nuc-page-container header-label="Geom 几何标记" no-footer>
+        1
+    </nuc-page-container>
 </template>
 
 <script>

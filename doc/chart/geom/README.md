@@ -3,7 +3,6 @@
 :::doc
 ## 简介
 几何标记对象，决定了图表的类型，具体的概念介绍请参见 [F2 Geometry](https://www.yuque.com/antv/f2/api-geometry)
-
 :::
 
 :::doc
@@ -12,7 +11,7 @@
 
 F2 生成的图表的类型，都是由几何标记决定的。可以通过下图直观得理解什么是几何标记：
 
-![img](https://gw.alipayobjects.com/zos/rmsportal/ffXoDNzwnXNHoaxtjbfY.png)
+<img src="https://gw.alipayobjects.com/zos/rmsportal/ffXoDNzwnXNHoaxtjbfY.png" width="100%">
 :::
 
 :::doc
@@ -252,19 +251,19 @@ F2 支持的调整类型包括：`stack`, `dodge`。
 <nuc-geom type="interval" :adjust="[{ type: 'dodge', marginRatio: 0 }]" />
 ```
 
-### style
+### styles
 用于配置几何标记显示的图形属性，详见 [绘图属性](https://www.yuque.com/antv/f2/canvas?_blank)。
 
-1. #### style=cfg
+1. #### styles=cfg
     * `cfg`：Object 配置绘图属性
 ```html
-<nuc-geom type="line" :style="{ lineWidth: 2 }" />
+<nuc-geom type="line" :styles="{ lineWidth: 2 }" />
 ```
-2. #### style=[field, cfg]
+2. #### styles=[field, cfg]
     * field：String 映射的字段名
     * cfg：Object 配置绘图属性，此时属性值也可以是回调函数
 ```html
-<nuc-geom type="line" :style="style" />
+<nuc-geom type="line" :styles="style" />
 ```
 ```javascript
 export default {
