@@ -186,6 +186,8 @@ export default {
 </script>
 
 <style lang="stylus">
+    .nuc-tab
+        overflow hidden
     .nuc-tab-wrap
         position relative
         height tab-height
@@ -212,7 +214,7 @@ export default {
     .nuc-tab-item
         color tab-label-color
         font-size tab-label-size
-        flex-grow 1
+        flex 1
         height 100%
         display flex
         align-items center
