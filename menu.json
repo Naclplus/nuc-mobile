@@ -11,6 +11,10 @@
           {
             "title": "快速上手",
             "link": "/quickstart"
+          },
+          {
+            "title": "修改主题",
+            "link": "/theme"
           }
         ]
       }
