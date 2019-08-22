@@ -21,6 +21,7 @@
 ```
 * 创建自定义主题文件，如`theme.custom.styl`
 ```stylus
+// 注意顺序
 @import '~nuc-mobile/components/_styles/variables.styl'
 @import '~nuc-mobile/components/_styles/basic.styl'
 
