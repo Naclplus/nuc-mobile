@@ -9,4 +9,62 @@
 
 :::doc
 ## 变量覆盖
+* 首先，项目需要安装依赖，`babel-plugin-import` `stylus` `stylus-loader`
+* 配置 `.babelrc` 或者 `babel.config.js`
+```javascript
+"plugins": [
+  ["import", {
+      "libraryName": "nuc-mobile",
+      "libraryDirectory": "components"
+  }]
+]
+```
+* 创建自定义主题文件，如`theme.custom.styl`
+```stylus
+@import '~nuc-mobile/components/_styles/variables.styl'
+@import '~nuc-mobile/components/_styles/basic.styl'
+
+color-primary = red
+```
+* #### 如果使用 vue-cli 3.x 配置 `vue.config.js`
+```javascript
+const path = require('path')
+
+module.exports = {
+  css: {
+    loaderOptions: {
+      stylus: {
+          import: [path.resolve(__dirname, 'src', 'theme.custom.styl')]
+      }
+    }
+  }
+}
+```
+* #### 如果使用 webpack
+```javascript
+const path = require('path')
+
+module.exports = {
+    // ...
+    module: {
+        rules: [
+            // ...
+            {
+                test: /\.styl?(us)$/,
+                use: [
+                  'css-loader',
+                  {
+                    loader: 'stylus-loader',
+                    options: {
+                      import: [path.resolve(__dirname, 'src', 'theme.custom.styl')]
+                    }
+                  }
+                ]
+            }
+            // ...
+        ]        
+    }
+    // ...
+}
+```
 :::
