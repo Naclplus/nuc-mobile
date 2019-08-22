@@ -203,8 +203,7 @@ export default {
             &--animate
                 transition all 0.3s cubic-bezier(0.35, 0, 0.25, 1)
         &--scrollable
-            overflow-y hidden
-            overflow-x auto
+            overflow hidden
             &::-webkit-scrollbar
                 display none
             .nuc-tab-item
