@@ -15,7 +15,18 @@ let cssLoader = [
         options: { sourceMap: !isProduction }
     },
     {
-        loader: 'postcss-loader'
+        loader: 'postcss-loader',
+        options: {
+            plugins: () => [
+                require('postcss-flexbugs-fixes')(),
+                require('autoprefixer')({ grid: true }),
+                require('postcss-pxtorem')({
+                    rootValue: 75,
+                    minPixelValue: 2,
+                    propList: ['*']
+                })
+            ]
+        }
     },
     {
         loader: 'stylus-loader'

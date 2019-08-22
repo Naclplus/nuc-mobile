@@ -1,7 +1,6 @@
 const path = require('path')
 const os = require('os')
 const fs = require('fs')
-const aliasPlugin = require('rollup-plugin-alias')
 const replacePlugin = require('rollup-plugin-replace')
 const jsonPlugin = require('rollup-plugin-json')
 const urlPlugin = require('rollup-plugin-url')
@@ -11,12 +10,8 @@ const css = require('rollup-plugin-css-only')
 const babel = require('rollup-plugin-babel')
 const commonjs = require('rollup-plugin-commonjs')
 const stylus = require('stylus')
-const builtins = require('rollup-plugin-node-builtins')
 const { terser } = require('rollup-plugin-terser')
-const nodeGlobals = require('rollup-plugin-node-globals')
-const glob = require('rollup-plugin-glob-import')
 const progress = require('rollup-plugin-progress')
-const fillHtmlPlugin = require('rollup-plugin-template-html')
 const filesize = require('rollup-plugin-filesize')
 const postcss = require('rollup-plugin-postcss')
 const findPostcssConfig = require('postcss-load-config')
@@ -24,11 +19,7 @@ const pkg = require('../package.json')
 
 // const postcssUrl = require('postcss-url')
 
-const babelrc = require('babelrc-rollup').default
-
 const isProduction = process.env.NODE_ENV === 'production'
-const isTest = process.env.NODE_ENV === 'testing'
-const isDev = !(isProduction || isTest)
 // const isSpecial = process.env.BUILD_TYPE === 'special'
 
 function resolve (dir) {
@@ -39,9 +30,6 @@ const PROJECT_DIR = resolve('.')
 
 const tmpDir = os.tmpdir()
 const DEV_OUTPUT_DIR = fs.mkdtempSync(`${tmpDir}${path.sep}`)
-
-const tmpTestDir = os.tmpdir()
-const TEST_OUTPUT_DIR = fs.mkdtempSync(`${tmpTestDir}${path.sep}`)
 
 async function vueWarpper () {
     let distDir = ''; let fileName = ''
