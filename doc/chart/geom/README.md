@@ -16,9 +16,15 @@ F2 生成的图表的类型，都是由几何标记决定的。可以通过下�
 
 :::doc
 ## 如何使用几何标记
-这里举例使用 point 类型的 geom
+这里举例使用 point 类型的 geom，渲染 x 轴数据为 `x`，y 轴数据为`y`
+```javascript
+import { Geom } from 'nuc-mobile'
+const Geom = Chart.Geom
+```
 ```html
-<nuc-geom type="point" />
+<nuc-chart :data="data">
+    <nuc-geom type="point" position="x*y" />
+</nuc-chart>
 ```
 虽然 F2 没有特定的图表类型概念，但是仍支持所有传统图表类型的绘制。
 
@@ -32,6 +38,8 @@ F2 生成的图表的类型，都是由几何标记决定的。可以通过下�
 | interval | 柱状图、分组柱状图、瀑布图、层叠柱状图、百分比层叠柱状图、直方图、南丁格尔玫瑰图、饼图、条形环图（玉缺图）、漏斗图等 | 通过坐标系的转置、变化，可以生成各种常见的图表类型；所有的图表都可以进行层叠、分组。 |
 | polygon | 色块图、地图 | 多个点可以构成多边形。 |
 | schema | k 线图 | 自定义的图表类型。 |
+
+更多参数参照下方API
 :::
 
 :::doc

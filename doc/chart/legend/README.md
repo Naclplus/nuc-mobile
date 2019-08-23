@@ -5,6 +5,20 @@
 F2 图例的生成是由图形语法中的图形属性决定的，我们会根据图形属性映射以及数据的类型自动生成不同类型的图例。具体的概念介绍请参见 [F2 Legend](https://www.yuque.com/antv/f2/api-legend)
 :::
 
+:::doc
+## 如何使用图例
+```javascript
+import { Legend } from 'nuc-mobile'
+const Legend = Chart.Legend
+```
+```html
+<nuc-chart :data="data">
+    <nuc-legend position="right" /> <!-- 设置图例位置在右侧 -->
+</nuc-chart>
+```
+更多参数参照下方API
+:::
+
 ## API
 :::doc
 ### name

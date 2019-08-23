@@ -16,6 +16,23 @@
 | 坐标轴网格线 | grid |
 :::
 
+:::doc
+## 如何使用坐标轴
+```javascript
+import { Chart } from 'nuc-mobile'
+const Axis = Chart.Axis
+```
+```html
+<nuc-chart :data="data">
+    <nuc-axis :visible="false" /> <!-- 设置全部坐标轴 不可见 -->
+</nuc-chart>
+<nuc-chart :data="data">
+    <nuc-axis name="x" :visible="false" />  <!-- 设置 x 属性字段坐标轴 不可见 -->
+</nuc-chart>
+```
+更多参数参照下方API
+:::
+
 
 :::doc
 ## API
@@ -26,13 +43,6 @@
 ### visible
 * 类型：Boolean
 * 描述：当前坐标轴是否需要可见，默认值true，如未指定name则生效与所有坐标轴
-```html
-<!-- 隐藏字段名未x的轴线 -->
-<nuc-axis name="x" :visible="false" />
-
-<!-- 隐藏全部轴线 -->
-<nuc-axis :visible="false" />
-```
 
 ### line
 * 类型：Object / null

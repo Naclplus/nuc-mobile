@@ -7,8 +7,8 @@
                 <div
                     v-for="(l, lkey) in g.list"
                     :key="lkey" class="menu-item__subitem"
-                    :class="{ 'menu-item__subitem--active': activeLink === l.link }"
-                    @click="onClick(l.link)">
+                    :class="{ 'menu-item__subitem--active': $route.path === l.link }"
+                >
                     <router-link :to="l.link">{{ l.title }}</router-link>
                 </div>
             </div>
@@ -23,7 +23,6 @@ export default {
     data () {
         return {
             menu,
-            activeLink: '/intro',
             isHide: false
 
         }
@@ -37,11 +36,6 @@ export default {
                 this.isHide = false
             }
         })
-    },
-    methods: {
-        onClick (link) {
-            this.activeLink = link
-        }
     }
 }
 </script>
