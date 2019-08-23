@@ -30,6 +30,8 @@ const GuideRect = Guide.Rect
 const GuideHtml = Guide.Html
 const GuideArc = Guide.Arc
 const GuideRegionFilter = Guide.RegionFilter
+const InteractionPieSelect = Interaction.PieSelect
+const InteractionIntervalSelect = Interaction.IntervalSelect
 const InteractionPan = Interaction.Pan
 const InteractionPinch = Interaction.Pinch
 const InteractionSwipe = Interaction.Swipe
@@ -63,6 +65,8 @@ const components = {
     GuideArc,
     GuideRegionFilter,
     Interaction,
+    InteractionPieSelect,
+    InteractionIntervalSelect,
     InteractionPan,
     InteractionPinch,
     InteractionSwipe,

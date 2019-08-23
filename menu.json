@@ -86,12 +86,28 @@
             "link": "/chart/geom"
           },
           {
+            "title": "Coord 坐标系",
+            "link": "/chart/coord"
+          },
+          {
             "title": "Axis 坐标轴",
             "link": "/chart/axis"
           },
           {
             "title": "Legend 图例",
             "link": "/chart/legend"
+          },
+          {
+            "title": "Tooltip 提示信息",
+            "link": "/chart/tooltip"
+          },
+          {
+            "title": "Guide 辅助元素",
+            "link": "/chart/guide"
+          },
+          {
+            "title": "Interaction 交互",
+            "link": "/chart/interaction"
           }
         ]
       }
