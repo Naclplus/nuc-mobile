@@ -33,6 +33,8 @@ function compileVueStylus (content, cb, compiler, filePath) {
     stylus(content)
         .set('filename', filePath)
         .define('url', stylus.url())
+        .import(path.join(__dirname, '../components/_styles/utils.styl'))
+        .import(path.join(__dirname, '../components/_styles/basic.styl'))
         .import(path.join(__dirname, '../components/_styles/variables.styl'))
         .render(async (err, css) => {
             if (err) {

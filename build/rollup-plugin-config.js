@@ -57,8 +57,9 @@ async function vueWarpper () {
                     stylus: {
                         use: [(styl) => {
                             styl.define('url', stylus.url())
-                                .import(path.join(__dirname, '../components/_styles/variables.styl'))
+                                .import(path.join(__dirname, '../components/_styles/utils.styl'))
                                 .import(path.join(__dirname, '../components/_styles/basic.styl'))
+                                .import(path.join(__dirname, '../components/_styles/variables.styl'))
                         }]
                     }
                 }
