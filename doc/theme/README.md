@@ -51,7 +51,7 @@ module.exports = {
         rules: [
             // ...
             {
-                test: /\.styl?(us)$/,
+                test: /\.styl(us)?$/,
                 use: [
                   'css-loader',
                   {
