@@ -1,10 +1,14 @@
 import Interaction from './nuc-interaction'
-import InteractionPan from './nuc-interaction-pan'
-import InteractionPinch from './nuc-interaction-pinch'
-import InteractionSwipe from './nuc-interaction-swipe'
+import PieSelect from './nuc-interaction-pie-select'
+import IntervalSelect from './nuc-interaction-interval-select'
+import Pan from './nuc-interaction-pan'
+import Pinch from './nuc-interaction-pinch'
+import Swipe from './nuc-interaction-swipe'
 
-Interaction.Pan = InteractionPan
-Interaction.Pinch = InteractionPinch
-Interaction.Swipe = InteractionSwipe
+Interaction.PieSelect = PieSelect
+Interaction.IntervalSelect = IntervalSelect
+Interaction.Pan = Pan
+Interaction.Pinch = Pinch
+Interaction.Swipe = Swipe
 
 export default Interaction

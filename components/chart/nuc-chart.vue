@@ -53,7 +53,7 @@ export default {
         // 初始化图表
         render () {
             const chartPlugins = []
-            if (this.$children.find((item) => item.$options.name === 'nacl-scroll-bar')) {
+            if (this.$children.find((item) => item.$options.name === 'nuc-scroll-bar')) {
                 chartPlugins.push(ScrollBar)
             }
             const chart = new F2.Chart({
@@ -80,6 +80,8 @@ export default {
                 chart.animate(this.animate)
             }
             chart.render()
+            // 渲染 Interaction 存在default-selected属性的模块
+            this.renderInteractionHasDefaultSelect()
         },
         // 渲染坐标系
         renderCoord () {
@@ -199,33 +201,65 @@ export default {
         renderInteraction () {
             this.interactionOptions.forEach((option) => {
                 const { type, styles: style, ...config } = option
-                if (config.onStart) {
-                    const func = config.onStart
-                    config.onStart = function () {
-                        func(this)
+                if (!config.defaultSelected) {
+                    if (config.onStart) {
+                        const func = config.onStart
+                        config.onStart = function (ev) {
+                            func(ev)
+                        }
                     }
-                }
-                if (config.onProcess) {
-                    const func = config.onProcess
-                    config.onProcess = function () {
-                        func(this)
+                    if (config.onProcess) {
+                        const func = config.onProcess
+                        config.onProcess = function (ev) {
+                            func(ev)
+                        }
                     }
-                }
-                if (config.onEnd) {
-                    const func = config.onEnd
-                    config.onEnd = function () {
-                        func(this)
+                    if (config.onEnd) {
+                        const func = config.onEnd
+                        config.onEnd = function (ev) {
+                            func(ev)
+                        }
                     }
+                    this.chart.interaction(type, {
+                        style,
+                        ...config
+                    })
                 }
-                this.chart.interaction(type, {
-                    style,
-                    ...config
-                })
             })
         },
         // 渲染ScrollBar
         renderScrollBar () {
             this.chart.scrollBar && this.chart.scrollBar(this.scrollBarOptions)
+        },
+        // 渲染Interaction
+        renderInteractionHasDefaultSelect () {
+            this.interactionOptions.forEach((option) => {
+                const { type, styles: style, ...config } = option
+                if (config.defaultSelected) {
+                    if (config.onStart) {
+                        const func = config.onStart
+                        config.onStart = function (ev) {
+                            func(ev)
+                        }
+                    }
+                    if (config.onProcess) {
+                        const func = config.onProcess
+                        config.onProcess = function (ev) {
+                            func(ev)
+                        }
+                    }
+                    if (config.onEnd) {
+                        const func = config.onEnd
+                        config.onEnd = function (ev) {
+                            func(ev)
+                        }
+                    }
+                    this.chart.interaction(type, {
+                        style,
+                        ...config
+                    })
+                }
+            })
         },
         setCoordOption (option) {
             this.coordOption = option

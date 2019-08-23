@@ -13,14 +13,14 @@ export default {
         })
     },
     methods: {
-        onStart () {
-            this.$emit('on-start')
+        onStart (ev) {
+            this.$emit('on-start', ev)
         },
         onProcess (ev) {
             this.$emit('on-process', ev)
         },
-        onEnd () {
-            this.$emit('on-end')
+        onEnd (ev) {
+            this.$emit('on-end', ev)
         }
     }
 }
