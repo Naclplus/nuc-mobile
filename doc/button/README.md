@@ -3,7 +3,7 @@
 :::doc
 ## 引入
 ```javascript
-import { Button } from 'nuc-mobile'
+import { Button } from 'nuc-mobile' 
 ```
 :::
 
