@@ -8,7 +8,7 @@
 :::doc
 ## 如何使用提示信息
 ```javascript
-import { Tooltip } from 'nuc-mobile'
+import { Chart } from 'nuc-mobile'
 const Tooltip = Chart.Tooltip
 ```
 ```html

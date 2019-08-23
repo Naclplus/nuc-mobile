@@ -15,11 +15,11 @@ import { Chart } from 'nuc-mobile'
 [Geom 几何标记组件](#/chart/geom)  
 [Axis 坐标轴组件](#/chart/axis)  
 [Coord 坐标系组件](#/chart/coord)  
-[Legend 图例组件]()  
-[ScrollBar 滚动条组件]()  
-[Tooltip 动态提示组件]()  
-[Guide 辅助标记组件]()  
-[Interaction 交互组件]()  
+[Legend 图例组件](#/chart/legend)  
+[ScrollBar 滚动条组件](#/chart/scroll-bar)  
+[Tooltip 动态提示组件](#/chart/tooltip)  
+[Guide 辅助标记组件](#/chart/guide)  
+[Interaction 交互组件](#/chart/interaction)  
 ```javascript
 const { Axis, Coord, Geom, Legend, ScrollBar, Tooltip, Guide, Interaction } = Chart
 ```

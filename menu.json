@@ -108,6 +108,10 @@
           {
             "title": "Interaction 交互",
             "link": "/chart/interaction"
+          },
+          {
+            "title": "ScrollBar 滚动条",
+            "link": "/chart/scroll-bar"
           }
         ]
       }

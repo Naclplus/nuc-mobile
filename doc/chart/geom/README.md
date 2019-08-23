@@ -18,7 +18,7 @@ F2 生成的图表的类型，都是由几何标记决定的。可以通过下�
 ## 如何使用几何标记
 这里举例使用 point 类型的 geom，渲染 x 轴数据为 `x`，y 轴数据为`y`
 ```javascript
-import { Geom } from 'nuc-mobile'
+import { Chart } from 'nuc-mobile'
 const Geom = Chart.Geom
 ```
 ```html

@@ -8,7 +8,7 @@ F2 图例的生成是由图形语法中的图形属性决定的，我们会根�
 :::doc
 ## 如何使用图例
 ```javascript
-import { Legend } from 'nuc-mobile'
+import { Chart } from 'nuc-mobile'
 const Legend = Chart.Legend
 ```
 ```html
