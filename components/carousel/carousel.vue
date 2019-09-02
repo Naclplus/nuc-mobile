@@ -87,7 +87,6 @@ export default {
     },
     watch: {
         value (val) {
-            console.log(val, this.index)
             if (this.loop) {
                 // 手动设置
                 if (val === 0 && this.index === this.count - 1) {
