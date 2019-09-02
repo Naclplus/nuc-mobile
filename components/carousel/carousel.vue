@@ -85,6 +85,28 @@ export default {
             return rect.width - this.size * this.count
         }
     },
+    watch: {
+        value (val) {
+            console.log(val, this.index)
+            if (this.loop) {
+                // 手动设置
+                if (val === 0 && this.index === this.count - 1) {
+                    return this.move({ step: 1 })
+                }
+                if (val === 0 && this.index === -1) {
+                    return this.move({ step: -1 })
+                }
+                // // 自动设置
+                // if (val === 0 && this.index === this.count) {
+                //     return this.move({ step: 1 })
+                // }
+                // if (val === this.count - 1 && this.index === -1) {
+                //     return this.move({ step: -1 })
+                // }
+            }
+            this.move({ step: val - this.index })
+        }
+    },
     mounted () {
         this.$nextTick(() => {
             this.initialize()

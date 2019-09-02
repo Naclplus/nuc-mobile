@@ -1,7 +1,7 @@
 <template>
     <nuc-page-container header-label="Carousel 轮播" no-footer>
         <nuc-carousel v-model="model">
-            <nuc-carousel-item v-for="item in 2" :key="item" class="item">{{ item }}</nuc-carousel-item>
+            <nuc-carousel-item v-for="item in 4" :key="item" class="item">{{ item }}</nuc-carousel-item>
         </nuc-carousel>
         <nuc-button @click="model = 0">{{ model }}</nuc-button>
     </nuc-page-container>
@@ -12,7 +12,7 @@ export default {
     name: 'example-carousel',
     data () {
         return {
-            model: 0
+            model: 2
         }
     }
 }

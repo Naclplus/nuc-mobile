@@ -63,6 +63,19 @@
           {
             "title": "Carousel 轮播",
             "link": "/carousel"
+          },
+          {
+            "title": "Popup 弹出层",
+            "link": "/popup"
+          }
+        ]
+      },
+      {
+        "groupName": "表单",
+        "list": [
+          {
+            "title": "Picker 选择器",
+            "link": "/picker"
           }
         ]
       }

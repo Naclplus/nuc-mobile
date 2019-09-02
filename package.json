@@ -19,7 +19,7 @@
     "build:example": "rm -rf ./site/example && cross-env NODE_ENV=production webpack --config build/webpack-example.config.js",
     "build:doc": "rm -rf ./site/doc && cross-env NODE_ENV=production webpack --config build/webpack-doc.config.js",
     "start": "npm run start:doc && npm run start:example",
-    "start:doc": "webpack-dev-server --progress --open --watch --info=false --port=8081 --config build/webpack-doc.config.js",
+    "start:doc": "webpack-dev-servT7Cer --progress --open --watch --info=false --port=8081 --config build/webpack-doc.config.js",
     "start:example": "webpack-dev-server --progress --open --watch --info=false --port=8080 --config build/webpack-example.config.js"
   },
   "author": "",
@@ -27,6 +27,7 @@
   "dependencies": {
     "@antv/f2": "^3.4.0",
     "amfe-flexible": "^2.2.1",
+    "better-scroll": "^1.15.2",
     "highlight.js": "^9.15.8",
     "stylus-bem-sugar": "^1.0.4",
     "vue": "^2.6.10",

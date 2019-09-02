@@ -6,6 +6,8 @@ import Tabbar from './tabbar'
 import Tab from './tab'
 import Icon from './icon-font'
 import Carousel from './carousel'
+import Popup from './popup'
+import Picker from './picker'
 import Chart from './chart'
 
 const FlexboxItem = Flexbox.Item
@@ -49,6 +51,8 @@ const components = {
     Icon,
     Carousel,
     CarouselItem,
+    Popup,
+    Picker,
     Chart,
     Coord,
     Geom,
@@ -102,7 +106,9 @@ export {
     Tab,
     Icon,
     Carousel,
-    Chart
+    Chart,
+    Popup,
+    Picker
 }
 
 export default components
