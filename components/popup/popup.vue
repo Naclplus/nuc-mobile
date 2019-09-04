@@ -1,7 +1,7 @@
 <template>
-    <div class="nuc-popup" @touchmove.prevent>
+    <div class="nuc-popup">
         <transition name="nuc-popup__mask">
-            <div v-if="isMaskShow" class="nuc-popup__mask" @click="onMaskClick" />
+            <div v-if="isMaskShow" class="nuc-popup__mask" @click="onMaskClick" @touchmove.prevent />
         </transition>
         <transition :name="contentTransitionName">
             <div v-if="isContentShow" class="nuc-popup__content" :class="`nuc-popup__content--${position}`">

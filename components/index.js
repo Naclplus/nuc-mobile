@@ -9,6 +9,7 @@ import Carousel from './carousel'
 import Popup from './popup'
 import Picker from './picker'
 import Chart from './chart'
+import Toast from './toast'
 
 const FlexboxItem = Flexbox.Item
 const TabbarItem = Tabbar.Item
@@ -76,6 +77,9 @@ const components = {
     InteractionSwipe,
     ScrollBar
 }
+const plugins = [
+    Toast
+]
 
 const install = function (Vue) {
     if (!Vue || install.installed) {
@@ -88,6 +92,9 @@ const install = function (Vue) {
         if (component.name) {
             Vue.component(component.name, component) // kebab-case
         }
+    })
+    plugins.forEach((plugin) => {
+        Vue.use(plugin)
     })
 }
 
@@ -108,7 +115,8 @@ export {
     Carousel,
     Chart,
     Popup,
-    Picker
+    Picker,
+    Toast
 }
 
 export default components

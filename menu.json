@@ -67,6 +67,10 @@
           {
             "title": "Popup 弹出层",
             "link": "/popup"
+          },
+          {
+            "title": "Toast 轻提示",
+            "link": "/toast"
           }
         ]
       },

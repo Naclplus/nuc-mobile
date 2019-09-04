@@ -19,7 +19,7 @@
     "build:example": "rm -rf ./site/example && cross-env NODE_ENV=production webpack --config build/webpack-example.config.js",
     "build:doc": "rm -rf ./site/doc && cross-env NODE_ENV=production webpack --config build/webpack-doc.config.js",
     "start": "npm run start:doc && npm run start:example",
-    "start:doc": "webpack-dev-servT7Cer --progress --open --watch --info=false --port=8081 --config build/webpack-doc.config.js",
+    "start:doc": "webpack-dev-server --progress --open --watch --info=false --port=8081 --config build/webpack-doc.config.js",
     "start:example": "webpack-dev-server --progress --open --watch --info=false --port=8080 --config build/webpack-example.config.js"
   },
   "author": "",
