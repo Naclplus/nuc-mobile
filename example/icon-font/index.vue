@@ -104,7 +104,7 @@ export default {
                 })(text)
                 document.execCommand('Copy')
             }
-            alert('已复制至剪贴板')
+            this.$toast.success('已复制至剪贴板')
         }
     }
 }

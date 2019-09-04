@@ -1,20 +1,20 @@
 import Vue from 'vue'
 
-function flattenVNodes (vnodes) {
-    const result = []
-    function traverse (vnodes) {
-        vnodes.forEach((vnode) => {
-            result.push(vnode)
-
-            if (vnode.children) {
-                traverse(vnode.children)
-            }
-        })
-    }
-
-    traverse(vnodes)
-    return result
-}
+// function flattenVNodes (vnodes) {
+//     const result = []
+//     function traverse (vnodes) {
+//         vnodes.forEach((vnode) => {
+//             result.push(vnode)
+//
+//             if (vnode.children) {
+//                 traverse(vnode.children)
+//             }
+//         })
+//     }
+//
+//     traverse(vnodes)
+//     return result
+// }
 
 export function ParentMixin (parent) {
     return {
@@ -69,8 +69,8 @@ export function ChildrenMixin (parent, options = {}) {
                     return
                 }
                 const children = [...this.parent.children, this]
-                const vnodes = flattenVNodes(this.parent.$slots.default)
-                children.sort((a, b) => vnodes.indexOf(a.$vnode) - vnodes.indexOf(b.$vnode))
+                // const vnodes = flattenVNodes(this.parent.$slots.default)
+                // children.sort((a, b) => vnodes.indexOf(a.$vnode) - vnodes.indexOf(b.$vnode))
 
                 this.parent.children = children
             }
