@@ -87,6 +87,7 @@ export default {
         -webkit-user-select: none
         -webkit-tap-highlight-color: transparent
         box-sizing border-box
+        border-radius button-radius
         &__inner
             display flex
             align-items center

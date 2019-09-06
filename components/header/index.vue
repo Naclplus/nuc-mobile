@@ -94,5 +94,6 @@ export default {
             text-overflow ellipsis
         &__default-left-label
             span
+                font-size header-left-label-font-size
                 vertical-align middle
 </style>

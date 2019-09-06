@@ -6,6 +6,8 @@ button-large-font-size = 36px
 button-small-height = 64px
 button-small-font-size = 28px
 
+button-radius = 0
+
 button-default-fill = color-white
 button-default-color = color-text-regular
 button-default-border-color = border-color
@@ -13,25 +15,25 @@ button-default-active-fill = #E8E8E8
 
 button-primary-fill = color-primary
 button-primary-color = color-white
-button-primary-border-color = color-primary
+button-primary-border-color = button-primary-fill
 //button-primary-active-fill = #0065CD
-button-primary-active-fill = mix(color-primary, #000, 80%)
+button-primary-active-fill = mix(button-primary-fill, #000, 80%)
 
 button-success-fill = color-success
 button-success-color = color-white
-button-success-border-color = color-success
+button-success-border-color = button-success-fill
 // button-success-active-fill = #018A2F
-button-success-active-fill = mix(color-success, #000, 80%)
+button-success-active-fill = mix(button-success-fill, #000, 80%)
 
 button-warning-fill = color-warning
 button-warning-color = color-white
-button-warning-border-color = color-warning
-button-warning-active-fill = mix(color-warning, #000, 80%)
+button-warning-border-color = button-warning-fill
+button-warning-active-fill = mix(button-warning-fill, #000, 80%)
 
 button-danger-fill = color-danger
 button-danger-color = color-white
-button-danger-border-color = color-danger
-button-danger-active-fill = mix(color-danger, #000, 80%)
+button-danger-border-color = button-danger-fill
+button-danger-active-fill = mix(button-danger-fill, #000, 80%)
 
 button-default-ghost-color = color-text-regular
 button-default-ghost-active-fill = #E8E8E8
@@ -53,6 +55,7 @@ _______________________ */
 header-height = 100px
 header-fill = brand-primary
 header-text-color = color-text-regular
+header-left-label-font-size = 24px
 header-title-font-size = 40px
 header-horizontal-space-between = 30px
 header-label-default-color = color-primary
