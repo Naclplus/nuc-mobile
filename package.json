@@ -29,6 +29,7 @@
     "amfe-flexible": "^2.2.1",
     "better-scroll": "^1.15.2",
     "highlight.js": "^9.15.8",
+    "moment": "^2.24.0",
     "stylus-bem-sugar": "^1.0.4",
     "vue": "^2.6.10",
     "vue-router": "^3.0.7"

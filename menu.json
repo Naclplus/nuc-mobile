@@ -80,6 +80,10 @@
           {
             "title": "Picker 选择器",
             "link": "/picker"
+          },
+          {
+            "title": "DatePicker 时间选择器",
+            "link": "/date-picker"
           }
         ]
       }
