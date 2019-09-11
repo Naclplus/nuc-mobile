@@ -8,6 +8,7 @@ import Icon from './icon-font'
 import Carousel from './carousel'
 import Popup from './popup'
 import Picker from './picker'
+import DatePicker from './date-picker'
 import Chart from './chart'
 import Toast from './toast'
 
@@ -54,6 +55,7 @@ const components = {
     CarouselItem,
     Popup,
     Picker,
+    DatePicker,
     Chart,
     Coord,
     Geom,
@@ -116,6 +118,7 @@ export {
     Chart,
     Popup,
     Picker,
+    DatePicker,
     Toast
 }
 

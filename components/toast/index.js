@@ -1,4 +1,5 @@
 import VueToast from './toast'
+import Vue from 'vue'
 
 let vm
 let defaultConfig = {
@@ -18,6 +19,12 @@ function parseOptions (options) {
 }
 
 const Toast = (options = {}) => {
+    if (!vm) {
+        vm = new (Vue.extend(VueToast))({
+            el: document.createElement('div')
+        })
+        document.body.appendChild(vm.$el)
+    }
     options = {
         ...defaultConfig,
         ...parseOptions(options)
@@ -53,13 +60,6 @@ const createMethod = (key, value) => (options) => {
 })
 
 Toast.install = function (Vue) {
-    if (!vm) {
-        vm = new (Vue.extend(VueToast))({
-            el: document.createElement('div')
-        })
-        document.body.appendChild(vm.$el)
-    }
-
     Vue.prototype.$toast = Toast
 }
 

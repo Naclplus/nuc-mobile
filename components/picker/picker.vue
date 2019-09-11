@@ -1,29 +1,24 @@
 <template>
-    <div class="nuc-picker-wrap">
-        <nuc-flexbox v-if="showToolbar" class="nuc-picker-toolbar" justify="between">
-            <a class="nuc-picker-toolbar__left" @click="onCancel">取消</a>
-            <div class="nuc-picker-toolbar__title">{{ title }}</div>
-            <a class="nuc-picker-toolbar__right" @click="onConfirm">确定</a>
-        </nuc-flexbox>
-        <div class="nuc-picker" :style="mainStyle">
-            <div class="nuc-picker__mask-top" :style="maskStyle" />
-            <div class="nuc-picker__mask-bottom" :style="maskStyle" />
+    <div class="nuc-picker">
+        <picker-wrapper
+            :item-height="itemHeight" :max-count="maxCount" :show-toolbar="showToolbar" :title="title"
+            @cancel="onCancel" @confirm="onConfirm"
+        >
             <nuc-flexbox>
-                <nuc-flexbox-item v-for="c in columns" :key="c">
+                <nuc-flexbox-item v-for="c in columns" :key="c" class="nuc-picker-column">
                     <scroller :item-height="itemHeight" :value="multiIndex[`wheel${c}`]" @change="(index) => onChange(index, c)">
-                        <ul class="nuc-picker__list-wrap" :style="listWrapStyle">
-                            <li v-for="(item, index) in multiData[`wheel${c}`]" :key="index" :style="itemStyle">{{ item.text || item }}</li>
-                        </ul>
+                        <li v-for="(item, index) in multiData[`wheel${c}`]" :key="index" :style="itemStyle">{{ item.text || item }}</li>
                     </scroller>
                 </nuc-flexbox-item>
             </nuc-flexbox>
-        </div>
+        </picker-wrapper>
     </div>
 </template>
 
 <script>
 import Flexbox from '../flexbox'
-import Scroller from './scroller'
+import Scroller from '../scroller'
+import PickerWrapper from '../picker-wrapper'
 
 const FlexboxItem = Flexbox.Item
 
@@ -38,6 +33,7 @@ export default {
     name: 'nuc-picker',
     components: {
         Scroller,
+        PickerWrapper,
         [Flexbox.name]: Flexbox,
         [FlexboxItem.name]: FlexboxItem
     },
@@ -80,24 +76,9 @@ export default {
         isMultiple () {
             return this.columns > 1
         },
-        mainStyle () {
-            return {
-                height: this.itemHeight * this.maxCount + 'px'
-            }
-        },
-        listWrapStyle () {
-            return {
-                marginTop: (this.maxCount - 1) / 2 * this.itemHeight + 'px'
-            }
-        },
         itemStyle () {
             return {
                 lineHeight: this.itemHeight + 'px'
-            }
-        },
-        maskStyle () {
-            return {
-                height: (this.maxCount - 1) / 2 * this.itemHeight + 'px'
             }
         }
     },
@@ -138,23 +119,25 @@ export default {
             for (let i = 0; i < array.length; i++) {
                 if (i === 0) {
                     this.$set(this.multiData, `wheel${i + 1}`, this.data)
-                    this.$set(this.multiIndex, `wheel${i + 1}`, this.data.findIndex((item) => {
+                    const index = this.data.findIndex((item) => {
                         if (item.value) {
                             return item.value === array[i]
                         }
                         return item === array[i]
-                    }))
+                    })
+                    this.$set(this.multiIndex, `wheel${i + 1}`, index !== -1 ? index : 0)
                 } else {
                     const data = this.multiData[`wheel${i}`].find((item) => {
                         return item.value ? item.value === array[i - 1] : item === array[i - 1]
                     })
-                    this.$set(this.multiData, `wheel${i + 1}`, data.children)
-                    this.$set(this.multiIndex, `wheel${i + 1}`, data.children.findIndex((item) => {
+                    const index = data.children.findIndex((item) => {
                         if (item.value) {
-                            return item.value === array[i]
+                            return item.value === array[i] || 0
                         }
-                        return item === array[i]
-                    }))
+                        return item === array[i] || 0
+                    })
+                    this.$set(this.multiData, `wheel${i + 1}`, data.children)
+                    this.$set(this.multiIndex, `wheel${i + 1}`, index !== -1 ? index : 0)
                 }
             }
         },
@@ -209,38 +192,6 @@ export default {
 </script>
 
 <style lang="stylus">
-    .nuc-picker-wrap
-        background #fff
-    .nuc-picker-toolbar
-        font-size picker-toolbar-title-font-size
-        border-bottom 2px solid picker-toolbar-border-color
-        height picker-toolbar-height
-        line-height picker-toolbar-height
-        &__left, &__right
-            padding 0 30px
-            color color-primary
-        &__title
-            color color-text-regular
-    .nuc-picker
-        position relative
+    .nuc-picker-column
         overflow hidden
-        &__mask-top, &__mask-bottom
-            position: absolute;
-            width 100%
-            z-index 2
-            pointer-events: none
-        &__mask-top
-            top 0
-            background linear-gradient(0deg, picker-mask-start-color, picker-mask-end-color)
-            border-bottom: 2px solid picker-indicator-border-color
-        &__mask-bottom
-            bottom 0
-            background linear-gradient(180deg, picker-mask-start-color, picker-mask-end-color)
-            border-top 2px solid picker-indicator-border-color
-        &__list-wrap
-            margin 0
-            padding 0
-            list-style none
-            text-align center
-            font-size picker-font-size
 </style>

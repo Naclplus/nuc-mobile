@@ -38,9 +38,9 @@ export default {
     data () {
         return {
             isPopupShow: false,
-            model1: '',
+            model1: 'Oppo',
             model2: 'xiaomi',
-            model3: ['11', '1101', '110101'],
+            model3: '',
             model4: '小米',
             model5: '',
             data1: ['小米', '华为', '苹果', 'Oppo', 'Vivo', '三星', '联想', '魅族'],
