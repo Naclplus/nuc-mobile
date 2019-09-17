@@ -1,12 +1,6 @@
 <template>
     <i class="nuc-icon" :class="{ [`nuc-icon--size-${size}`] : isPrepaidSize }" :style="sizeStyle">
-        <svg
-            class=""
-            width="1em"
-            height="1em"
-            fill="currentColor"
-            aria-hidden="true"
-        >
+        <svg aria-hidden="true">
             <use :xlink:href="`#${prefix}-${type}`" />
         </svg>
     </i>
@@ -49,14 +43,15 @@ export default {
 
 <style lang="stylus">
     .nuc-icon
+        position relative
         display inline-block
-        font-style normal
         vertical-align middle
-        text-align center
-        text-transform none
-        line-height 0
-        text-rendering optimizeLegibility
-        -webkit-font-smoothing antialiased
+        svg
+            width 1em
+            height 1em
+            vertical-align -0.15em
+            fill currentColor
+            overflow hidden
         &--size-xs
             font-size: icon-font-size-xs
         &--size-sm

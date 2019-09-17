@@ -69,6 +69,10 @@
             "link": "/popup"
           },
           {
+            "title": "Cell 单元格",
+            "link": "/cell"
+          },
+          {
             "title": "Toast 轻提示",
             "link": "/toast"
           }

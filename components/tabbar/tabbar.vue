@@ -20,6 +20,11 @@ export default {
             default: 0
         }
     },
+    data () {
+        return {
+            index: this.value
+        }
+    },
     watch: {
         children () {
             this.setActiveItem()

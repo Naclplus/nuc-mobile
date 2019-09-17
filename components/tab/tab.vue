@@ -79,6 +79,7 @@ export default {
     },
     data () {
         return {
+            index: this.value,
             inited: false,
             direction: 'forward'
         }

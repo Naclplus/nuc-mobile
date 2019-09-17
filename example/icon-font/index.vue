@@ -124,8 +124,8 @@ export default {
             box-sizing border-box
             color #666
             padding 0 10px
+            text-align center
             p
-                text-align center
                 margin-bottom 0
                 color #999
                 white-space nowrap

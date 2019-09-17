@@ -5,6 +5,7 @@ import Header from './header'
 import Tabbar from './tabbar'
 import Tab from './tab'
 import Icon from './icon-font'
+import Cell from './cell'
 import Carousel from './carousel'
 import Popup from './popup'
 import Picker from './picker'
@@ -16,6 +17,7 @@ const FlexboxItem = Flexbox.Item
 const TabbarItem = Tabbar.Item
 const TabItem = Tab.Item
 const CarouselItem = Carousel.Item
+const CellGroup = Cell.Group
 // Chart
 const Coord = Chart.Coord
 const Geom = Chart.Geom
@@ -51,6 +53,8 @@ const components = {
     Tab,
     TabItem,
     Icon,
+    Cell,
+    CellGroup,
     Carousel,
     CarouselItem,
     Popup,
@@ -114,6 +118,7 @@ export {
     Tabbar,
     Tab,
     Icon,
+    Cell,
     Carousel,
     Chart,
     Popup,

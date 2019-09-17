@@ -25,7 +25,6 @@ export function ParentMixin (parent) {
         },
         data () {
             return {
-                index: this.value,
                 children: []
             }
         }
