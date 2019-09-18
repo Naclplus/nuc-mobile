@@ -63,6 +63,7 @@ export default {
         background tabbar-fill
         color tabbar-text-color
         z-index tabbar-z-index
+        font-size tabbar-font-size
         &--fixed
             position fixed
             bottom 0
