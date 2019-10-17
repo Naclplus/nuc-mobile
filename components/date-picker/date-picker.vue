@@ -90,6 +90,8 @@ export default {
         } else {
             if (!(this.value instanceof Moment)) {
                 date = Moment(this.value)
+            } else {
+                date = this.value
             }
         }
         return {
